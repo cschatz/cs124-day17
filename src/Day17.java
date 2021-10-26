@@ -90,7 +90,15 @@ public class Day17 {
 
 	public static void main(String[] args) {
 		BST<Integer> myTree = new BST<Integer>();
-
+		myTree.insert(6);
+		myTree.insert(10);
+		myTree.insert(12);
+		myTree.insert(3);
+		myTree.insert(1);
+		myTree.insert(5);
+		myTree.insert(8);
+		myTree.insert(9);
+		
 	}
 
 }

@@ -1,5 +1,5 @@
 
-public class BST<E> {
+public class BST<E extends Comparable<E>> {
 	
 	private class BSTNode {
 		E key;
@@ -34,7 +34,38 @@ public class BST<E> {
 		if (root == null) {
 			root = node;
 		} else {
-			
+			// Start a "current" reference at the root node...
+			BSTNode current = root;
+			// ... then walk down the tree to find a place
+			// to insert
+			while (true) {
+				if (item.compareTo(current.key) < 0) {
+					// go left
+					if (current.left == null) {
+						// found a place to insert, yaya!
+						current.left = node;
+						return;
+					} else {
+						// walk to the left
+						current = current.left;
+					}
+				} else if (item.compareTo(current.key) > 0) {
+					// go right
+					if (current.right == null) {
+						// found a place to insert, yaya!
+						current.right = node;
+						return;
+					} else {
+						// walk to the left
+						current = current.right;
+					}
+				} else {
+					// uh oh! duplicate!!!
+					// do nothing
+					System.out.println("Psst! You already added " + item + "...");
+					return;
+				}
+			}
 		}
 	}
 	
