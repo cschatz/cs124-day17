@@ -5,6 +5,13 @@ public class BST<E> {
 		E key;
 		BSTNode left;
 		BSTNode right;
+		
+		// Constructor
+		public BSTNode(E key) {
+			this.key = key;
+			left = null;
+			right = null;
+		}
 	}
 	
 	// The BST class as a whole has only one
@@ -18,6 +25,10 @@ public class BST<E> {
 	
 	public boolean isEmpty() {
 		return (root == null);
+	}
+	
+	public void insert(E item) {
+		BSTNode node = new BSTNode(item);
 	}
 	
 }
