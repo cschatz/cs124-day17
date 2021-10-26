@@ -86,11 +86,10 @@ class Solution2 {
  */
 
 
-
 public class Day17 {
 
 	public static void main(String[] args) {
-		
+		BST<Integer> myTree = new BST<Integer>();
 
 	}
 
