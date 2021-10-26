@@ -16,7 +16,7 @@ public class BST<E> {
 	
 	// The BST class as a whole has only one
 	// instance variable, representing the root
-	private BST root;
+	private BSTNode root;
 	
 	// Constructor
 	public BST() {
@@ -29,6 +29,13 @@ public class BST<E> {
 	
 	public void insert(E item) {
 		BSTNode node = new BSTNode(item);
+		// Edge case: this is the first node inserted
+		// in an empty tree
+		if (root == null) {
+			root = node;
+		} else {
+			
+		}
 	}
 	
 }
