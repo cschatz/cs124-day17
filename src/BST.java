@@ -170,16 +170,16 @@ public class BST<E extends Comparable<E>> {
 			// move current's right child into its place
 			current.right.left = current.left;
 			if (parent.left == current)
-				parent.left = current.right;
-			else
-				parent.right = current.right;
-		}
-		else if (current.left.isLeaf()) {
-			current.right.left = current.left;
-			if (parent.left == current)
 				parent.left = current.left;
 			else
-				parent.right = current.left;	
+				parent.right = current.left;
+		}
+		else if (current.left.isLeaf()) {
+			current.left.right = current.right;
+			if (parent.left == current)
+				parent.left = current.right;
+			else
+				parent.right = current.right;	
 		}
 		
 	}
