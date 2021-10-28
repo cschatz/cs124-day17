@@ -27,6 +27,10 @@ public class BST<E extends Comparable<E>> {
 		return (root == null);
 	}
 	
+	public boolean isLeaf() {
+		return (root.left == null && root.right == null);
+	}
+	
 	public void insert(E item) {
 		BSTNode node = new BSTNode(item);
 		// Edge case: this is the first node inserted
@@ -85,6 +89,83 @@ public class BST<E extends Comparable<E>> {
 				current = current.right;
 			}
 		}
+	}
+	
+	private void displayHelper(BSTNode subtreeRoot) {
+		// Carry out in-order traversal of everything
+		// in the tree from subtreeRoot down
+		// Remember: in-order means left, root, right
+		
+		// base case
+		if (subtreeRoot == null)
+			return;
+		
+		// traverse my left subtree
+		displayHelper(subtreeRoot.left);
+		
+		// print the current root's key
+		System.out.println(subtreeRoot.key);
+		
+		// traverse my right subtree
+		displayHelper(subtreeRoot.right);
+		
+	}
+	
+	public void display() {
+		displayHelper(root);
+	}
+	
+	public void remove(E target) {
+		// phase 1: search for the target
+		
+		// edge case: empty tree
+		if (root == null)
+			return;
+		
+		BSTNode current = root;
+		BSTNode parent = null;
+		// edge case: target is at the root
+		if (target.compareTo(root.key) == 0) {
+			// TO DO:
+			// Handle this case
+			
+		}
+		
+		while (true) {
+			if (current == null) {
+				// Not found! Just give up
+				return;
+			}
+			else if (target.compareTo(current.key) == 0) {
+				// Found it! 
+				// Stop the search process
+				break;
+			}
+			else if (target.compareTo(current.key) < 0) {
+				parent = current;
+				current = current.left;
+			} else {
+				parent = current;
+				current = current.right;
+			}
+		}
+		
+		
+		// Phase 2: do the removal
+		// parent is set to the parent of the node we want to remove
+		
+		// Case A: current is a leaf
+		if (current.left == null && current.right == null) {
+			// set the parent's child to null
+			if (parent.left == current)
+				parent.left = null;
+			else
+				parent.right = null;
+		}
+		
+		// Case B: one of current's children is a leaf
+		
+		
 	}
 }
 	

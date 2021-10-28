@@ -109,6 +109,9 @@ public class Day17 {
 		System.out.println(myTree.find(2));
 		System.out.println(myTree.find(11));
 		
+		System.out.println();
+		myTree.display();
+		
 	}
 
 }
