@@ -12,6 +12,10 @@ public class BST<E extends Comparable<E>> {
 			left = null;
 			right = null;
 		}
+		
+		public boolean isLeaf() {
+			return (left == null && right == null);
+		}
 	}
 	
 	// The BST class as a whole has only one
@@ -27,9 +31,7 @@ public class BST<E extends Comparable<E>> {
 		return (root == null);
 	}
 	
-	public boolean isLeaf() {
-		return (root.left == null && root.right == null);
-	}
+
 	
 	public void insert(E item) {
 		BSTNode node = new BSTNode(item);
@@ -155,7 +157,7 @@ public class BST<E extends Comparable<E>> {
 		// parent is set to the parent of the node we want to remove
 		
 		// Case A: current is a leaf
-		if (current.left == null && current.right == null) {
+		if (current.isLeaf()) {
 			// set the parent's child to null
 			if (parent.left == current)
 				parent.left = null;
