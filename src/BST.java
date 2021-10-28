@@ -69,7 +69,25 @@ public class BST<E extends Comparable<E>> {
 		}
 	}
 	
+	public boolean find(E target) {
+		BSTNode current = root;
+		while (true) {
+			if (current == null) {
+				return false;
+			}
+			else if (current.key.compareTo(target) == 0) {
+				return true;
+			}
+			else if (current.key.compareTo(target) < 0) {
+				current = current.left;
+			} 
+			else { // current.key.compareTo(target) > 0
+				current = current.right;
+			}
+		}
+	}
 }
+	
 
 
 
