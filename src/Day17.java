@@ -110,7 +110,16 @@ public class Day17 {
 		System.out.println(myTree.find(11));
 		
 		System.out.println();
+		
 		myTree.display();
+		
+		System.out.println();
+		
+		myTree.remove(3);
+		myTree.remove(5);
+		
+		myTree.display();
+		
 		
 	}
 

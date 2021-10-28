@@ -166,15 +166,15 @@ public class BST<E extends Comparable<E>> {
 		}
 		
 		// Case B: one of current's children is a leaf
-		if (current.right.isLeaf()) {
+		else if (current.right.isLeaf()) {
 			// move current's right child into its place
 			current.right.left = current.left;
 			if (parent.left == current)
 				parent.left = current.right;
 			else
-				parent.right = current.right;	
+				parent.right = current.right;
 		}
-		if (current.left.isLeaf()) {
+		else if (current.left.isLeaf()) {
 			current.right.left = current.left;
 			if (parent.left == current)
 				parent.left = current.left;
