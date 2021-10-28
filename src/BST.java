@@ -75,13 +75,13 @@ public class BST<E extends Comparable<E>> {
 			if (current == null) {
 				return false;
 			}
-			else if (current.key.compareTo(target) == 0) {
+			else if (target.compareTo(current.key) == 0) {
 				return true;
 			}
-			else if (current.key.compareTo(target) < 0) {
+			else if (target.compareTo(current.key) < 0) {
 				current = current.left;
 			} 
-			else { // current.key.compareTo(target) > 0
+			else { // target.compareTo(current.key) > 0
 				current = current.right;
 			}
 		}

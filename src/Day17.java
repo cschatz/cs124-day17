@@ -99,6 +99,16 @@ public class Day17 {
 		myTree.insert(8);
 		myTree.insert(9);
 		
+		// should print true
+		System.out.println(myTree.find(5));
+		System.out.println(myTree.find(3));
+		System.out.println(myTree.find(12));
+		
+		// should print false
+		System.out.println(myTree.find(4));
+		System.out.println(myTree.find(2));
+		System.out.println(myTree.find(11));
+		
 	}
 
 }
