@@ -98,17 +98,17 @@ public class BST<E extends Comparable<E>> {
 		// in the tree from subtreeRoot down
 		// Remember: in-order means left, root, right
 		
-		// base case
+		// Vase case
 		if (subtreeRoot == null)
 			return;
 		
-		// traverse my left subtree
+		// Traverse my left subtree
 		displayHelper(subtreeRoot.left);
 		
-		// print the current root's key
+		// Print the current root's key
 		System.out.println(subtreeRoot.key);
 		
-		// traverse my right subtree
+		// Traverse my right subtree
 		displayHelper(subtreeRoot.right);
 		
 	}
@@ -126,13 +126,7 @@ public class BST<E extends Comparable<E>> {
 		
 		BSTNode current = root;
 		BSTNode parent = null;
-		// edge case: target is at the root
-		if (target.compareTo(root.key) == 0) {
-			// TO DO:
-			// Handle this case
-			
-		}
-		
+
 		while (true) {
 			if (current == null) {
 				// Not found! Just give up
@@ -159,6 +153,9 @@ public class BST<E extends Comparable<E>> {
 		
 		// Case A: current is a leaf
 		if (current.isLeaf()) {
+			// TO DO:
+			// Add code to handle the target being at the root
+			
 			// set the parent's child to null
 			if (parent.left == current)
 				parent.left = null;
@@ -183,9 +180,43 @@ public class BST<E extends Comparable<E>> {
 		
 		// Case C: current's children are both non-leaf nodes
 		
+		// TO DO:
+		// Implement the rest of the remove() method, handling Case C
+		
 		
 		
 	}
+	
+	public int numNodes() {
+		// TO DO:
+		// Determine the total number of nodes in the whole tree
+		// (Hint: You may want to make a recursive helper method.)
+		
+		return 42; // placeholder
+	}
+	
+	public int numLeaves() {
+		// TO DO:
+		// Determine the total number of leaves in the whole tree
+		// (Hint: You may want to make a recursive helper method.)
+		
+		return 42; // placeholder
+	}
+
+	public void printKeysWithinRange(E minimum, E maximum) {
+		// TO DO:
+		// Print out all keys in the BST that are within the given range,
+		//  such that minimum <= key <= maximum
+		// *** Important ***: Your method should run in O(K + log(N)) average time,
+		//                    where K is the number of keys printed.
+		//                    You can achieve this by logically traversing only SOME nodes in the tree
+		// (Hint: You may want to make a recursive helper method.)
+		
+	}
+	
+	
+	
+	
 }
 	
 
