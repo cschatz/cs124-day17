@@ -118,9 +118,9 @@ public class BST<E extends Comparable<E>> {
 	}
 	
 	public void remove(E target) {
-		// phase 1: search for the target
+		// Phase 1 - Search for the target
 		
-		// edge case: empty tree
+		// Edge case: empty tree
 		if (root == null)
 			return;
 		
@@ -153,8 +153,9 @@ public class BST<E extends Comparable<E>> {
 		}
 		
 		
-		// Phase 2: do the removal
-		// parent is set to the parent of the node we want to remove
+		// Phase 2 - Do the removal
+		// New approach (modified after Thursday's class): For Case B and C, 
+		//  we only need to copy a different node's element into the one being removed.
 		
 		// Case A: current is a leaf
 		if (current.isLeaf()) {
@@ -166,21 +167,23 @@ public class BST<E extends Comparable<E>> {
 		}
 		
 		// Case B: one of current's children is a leaf
-		else if (current.right.isLeaf()) {
-			// move current's right child into its place
-			current.right.left = current.left;
-			if (parent.left == current)
-				parent.left = current.left;
-			else
-				parent.right = current.left;
-		}
 		else if (current.left.isLeaf()) {
-			current.left.right = current.right;
-			if (parent.left == current)
-				parent.left = current.right;
-			else
-				parent.right = current.right;	
+			// Copy the key from current's left child into its place,
+			//  then remove the child link
+			current.key = current.left.key;
+			current.left = null;
 		}
+		else if (current.right.isLeaf()) {
+			// Copy the key from current's right child into its place,
+			//  then remove the child link
+			current.key = current.right.key;
+			current.right = null;
+		}
+
+		
+		// Case C: current's children are both non-leaf nodes
+		
+		
 		
 	}
 }
