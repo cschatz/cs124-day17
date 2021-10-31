@@ -164,13 +164,13 @@ public class BST<E extends Comparable<E>> {
 		}
 		
 		// Case B: one of current's children is a leaf
-		else if (current.left.isLeaf()) {
+		else if (current.left != null && current.left.isLeaf()) {
 			// Copy the key from current's left child into its place,
 			//  then remove the child link
 			current.key = current.left.key;
 			current.left = null;
 		}
-		else if (current.right.isLeaf()) {
+		else if (current.right != null && current.right.isLeaf()) {
 			// Copy the key from current's right child into its place,
 			//  then remove the child link
 			current.key = current.right.key;
